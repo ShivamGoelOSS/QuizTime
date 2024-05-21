@@ -1,0 +1,25 @@
+body{
+    background-color: #e7f3ff;  
+}
+#content{
+    margin-left: 44vw;
+    margin-top: 35vh;
+    color: #2b7fe8;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    margin-left: 2.5rem;
+    font-weight: bolder;
+    font-size: 3rem;
+    height: 5vh;
+}
+button{
+    margin-top: 1rem;
+    padding: 5px;
+    width: 10vw;
+    color: #2b7fe8;
+    border: 1px solid #2b7fe8;
+    background-color: white;
+    cursor: pointer;
+}
