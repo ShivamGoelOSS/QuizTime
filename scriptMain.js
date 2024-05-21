@@ -30,33 +30,48 @@ function loadQuestion(index){
     newDiv.innerHTML=`<h1>${questions[index].question}</h1>
     <div id="option">
         <div id="alpha">A</div>
-        <div id="choice">${questions[index].choice1}</div>
+        <div class="choice" id="1">${questions[index].choice1}</div>
     </div>
     <div id="option">
         <div id="alpha">B</div>
-        <div id="choice">${questions[index].choice2}</div>
+        <div class="choice" id="2">${questions[index].choice2}</div>
     </div>
     <div id="option">
         <div id="alpha">C</div>
-        <div id="choice">${questions[index].choice3}</div>
+        <div class="choice" id="3">${questions[index].choice3}</div>
     </div>
     <div id="option">
         <div id="alpha">D</div>
-        <div id="choice">${questions[index].choice4}</div>
+        <div class="choice" id="4">${questions[index].choice4}</div>
     </div>`
     document.body.appendChild(newDiv);
 }
 var index=0;
+var score=0;
 document.addEventListener("DOMContentLoaded",function(){
     loadQuestion(index);
     document.body.addEventListener("click",function(e){
-        if(e.target.id=="choice"){
-            if(index!=questions.length-1){
-                e.target.parentNode.parentNode.remove();
-                loadQuestion(++index);
+        if(e.target.classList.contains("choice")){
+            if(parseInt(e.target.id,10)==questions[index].answer){
+                e.target.parentNode.style.backgroundColor="lightgreen";
+                score+=10;
+                document.body.children[0].children[1].children[1].textContent=score;
             }
             else{
-                window.location.href="endPage.html";
+                e.target.parentNode.style.backgroundColor="lightcoral";
+            }
+            if(index!=questions.length-1){
+                setTimeout(function(){
+                    e.target.parentNode.parentNode.remove();
+                    loadQuestion(++index);
+                    document.body.children[0].children[0].children[0].textContent="Question "+(index+1)+"/3";
+                    document.body.children[0].children[0].children[1].children[0].style.width=33.33*(index+1)+"%";
+                },500)
+            }
+            else{
+                setTimeout(function(){
+                    window.location.href="endPage.html?data="+encodeURIComponent(score);
+                },500)
             }
         }
     })

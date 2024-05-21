@@ -1,18 +1,53 @@
 body{
     background-color: #e7f3ff;  
+    margin: 0%;
+}
+p{
+    margin: 0%;
+}
+#head{
+    margin-left: 25vw;
+    margin-top: 20vh; 
+    display: flex;
+    justify-content: space-between;
+    width: 45vw;
+    font-weight: bold;
+}
+#count{
+    margin-left: 3vw;
+}
+#progress{
+    border: 3px solid #2b7fe8;
+    margin-top: 0.5rem;
+    height: 4vh;
+    width: 13vw;
+    position: relative;
+}
+#childProgress{
+    background-color: #2b7fe8;
+    position: absolute;
+    width: 33.33%;
+    height: 100%;
+}
+#numScore{
+    color: #2b7fe8;
+    font-size: 2rem;
 }
 #question{
     margin-left: 25vw;
-    margin-top: 30vh;
+    margin-top: 5vh; 
 }
 #question h1{
     word-wrap: break-word;
-    width: 50vw;
+    width: 45vw;
+    margin-bottom: 2rem;
 }
 #option{
     margin-top: 0.5rem;
     display: flex;
     cursor: pointer;
+    background-color: white;
+    width: 45vw;
 }
 #alpha{
     color: white;
@@ -22,10 +57,12 @@ body{
     height:2rem;
     width:2rem;
 }
-#choice{
-    background-color: white;
-    width: 30rem;
+.choice{
+    width: 42rem;
     height:2rem;
     padding-top: 4px;
     padding-left: 10px;
+}
+.choice:hover{
+    box-shadow: 0 2px 10px #2b7fe8;
 }
